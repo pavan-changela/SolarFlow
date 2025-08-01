@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success">
+        Quotation saved successfully!
+    </div>
+    <a href="{% url 'quotation_pdf' quotation.id %}" class="btn btn-outline-dark">Download PDF</a>
+    <a href="{% url 'create_quotation' %}" class="btn btn-primary">Create Another</a>
+</div>
+{% endblock %}
+

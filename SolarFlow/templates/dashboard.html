@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="row text-center">
+    <div class="col"><div class="alert alert-primary">Quotations: {{ quotation_count }}</div></div>
+    <div class="col"><div class="alert alert-success">Projects: {{ project_count }}</div></div>
+    <div class="col"><div class="alert alert-warning">Payments: {{ payment_count }}</div></div>
+    <div class="col"><div class="alert alert-danger">Complaints: {{ complaint_count }}</div></div>
+</div>
+{% endblock %}

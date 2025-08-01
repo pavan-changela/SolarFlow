@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Projects</h2>
+    <a href="{% url 'create_project' %}" class="btn btn-sm btn-outline-success mb-3">New Project</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Quotation No</th><th>Customer</th><th>Start Date</th><th>Deadline</th><th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project.quotation.quotation_no }}</td>
+                <td>{{ project.quotation.customer.name }}</td>
+                <td>{{ project.start_date }}</td>
+                <td>{{ project.completion_deadline }}</td>
+                <td>{% if project.is_completed %}✅{% else %}❌{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

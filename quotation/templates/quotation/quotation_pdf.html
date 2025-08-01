@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 12px;
+            margin: 20px;
+        }
+        .header, .footer {
+            text-align: center;
+            font-weight: bold;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 6px;
+            text-align: left;
+        }
+        .no-border {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>Quotation for Solar Rooftop Project</h2>
+    </div>
+
+    <div class="section">
+        <p><strong>M/s:</strong> {{ quotation.customer.name }}</p>
+        <p><strong>Address:</strong> {{ quotation.customer.address }} - {{ quotation.customer.pincode }}</p>
+        <p><strong>Contact No.:</strong> +91 {{ quotation.customer.contact }}</p>
+        <p><strong>Date:</strong> {{ quotation.date }} &nbsp;&nbsp; <strong>Quotation No.:</strong> {{ quotation.quotation_no }}</p>
+        <p><strong>Place of Supply:</strong> 24-Gujarat</p>
+    </div>
+
+    <div class="section">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr No</th><th>Particulars</th><th>Qty</th><th>KW</th><th>Rate</th><th>GST</th><th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td><td>Complete EPC Plant</td><td>1</td><td>{{ quotation.kw_total|floatformat:2 }}</td>
+                    <td>{{ quotation.complete_epc_rate }}</td><td>12%</td>
+                    <td>{{ quotation.epc_total|floatformat:2 }}</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>Meter Charge</td><td>1</td><td>-</td><td>{{ quotation.meter_charge }}</td><td>0%</td><td>{{ quotation.meter_charge }}</td>
+                </tr>
+                <tr>
+                    <td>3</td><td>Fabrication</td><td>1</td><td>-</td><td>{{ quotation.fabrication_rate }}</td><td>0%</td><td>{{ quotation.fabrication_total|floatformat:2 }}</td>
+                </tr>
+                <tr>
+                    <td>4</td><td>Module ({{ quotation.module_wp }} Wp x {{ quotation.module_quantity }})</td>
+                    <td>{{ quotation.module_quantity }}</td><td>-</td><td>{{ quotation.module_rate }}</td><td>0%</td><td>{{ quotation.module_total|floatformat:2 }}</td>
+                </tr>
+                <tr>
+                    <td>5</td><td>Inverter ({{ quotation.inverter_size }} kW)</td><td>1</td><td>-</td><td>{{ quotation.inverter_rate }}</td><td>0%</td><td>{{ quotation.inverter_total|floatformat:2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <p><strong>GSTIN:</strong> 24AAHCI8590B1ZK</p>
+        <p><strong>Sub Total:</strong> ₹{{ quotation.subtotal|floatformat:2 }}</p>
+        <p><strong>Grand Total:</strong> ₹{{ quotation.grand_total|floatformat:2 }}</p>
+        <p><strong>Total Subsidy (not part of total):</strong> ₹{{ quotation.subsidy|floatformat:2 }}</p>
+    </div>
+
+    <div class="section">
+        <h4>Bank Details</h4>
+        <p><strong>Bank Name:</strong> ICICI BANK LTD</p>
+        <p><strong>Account Name:</strong> INFRAX RENEWABLE LIMITED</p>
+        <p><strong>Account Number:</strong> 655305601416</p>
+        <p><strong>IFSC:</strong> ICIC0006553</p>
+        <p><strong>Branch:</strong> NIRMALA CONVENT ROAD - RAJKOT</p>
+    </div>
+
+    <div class="section">
+        <h4>Note:</h4>
+        <ul>
+            <li>Final meter charge as per DISCOM quotation.</li>
+            <li>Subsidy will be credited after meter installation.</li>
+            <li>Offer Validity: 10 days.</li>
+        </ul>
+        <h4>Payment Plan:</h4>
+        <ul>
+            <li>₹10,000/- per kW as advance.</li>
+            <li>Remaining amount to be paid before material dispatch.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h4>Warranty</h4>
+        <ul>
+            <li>Solar Panel: 10 years product, 25 years performance</li>
+            <li>Inverter: 5 years</li>
+            <li>On-site: 5 years | Spares: 1 year | Monitoring: 1 year</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>307-Shashvat Space, Nana Mava Rd, Rajkot 360005, Gujarat, India</p>
+        <p>info@infraxrenewable.com | www.infraxrenewable.com | 1800 274 2704</p>
+    </div>
+
+</body>
+</html>
