@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+
+
 def home(request):
-    return HttpResponse("This is the customers home page.")
+    return render(request, 'customers/home.html')
+

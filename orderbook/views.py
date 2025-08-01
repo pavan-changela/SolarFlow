@@ -1,6 +1,5 @@
+# orderbook/views.py
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("This is the orderbook home page.")
-
+    return render(request, 'orderbook/home.html')  # Create this template if needed
