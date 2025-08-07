@@ -2,6 +2,8 @@
 {% block content %}
 <div class="container mt-5">
     <h2>Create New Quotation</h2>
+     <a href="{% url 'create_customer' %}" class="btn btn-secondary mb-3">➕ Add New Customer</a>
+
     <form method="post">
         {% csrf_token %}
         <div class="row">

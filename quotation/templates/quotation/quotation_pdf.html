@@ -47,27 +47,54 @@
         <table>
             <thead>
                 <tr>
-                    <th>Sr No</th><th>Particulars</th><th>Qty</th><th>KW</th><th>Rate</th><th>GST</th><th>Amount</th>
+                    <th>Sr No</th>
+                    <th>Particulars</th>
+                    <th>Qty</th>
+                    <th>KW</th>
+                    <th>Rate</th>
+                    <th>GST</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td><td>Complete EPC Plant</td><td>1</td><td>{{ quotation.kw_total|floatformat:2 }}</td>
-                    <td>{{ quotation.complete_epc_rate }}</td><td>12%</td>
-                    <td>{{ quotation.epc_total|floatformat:2 }}</td>
+                    <td>1</td>
+                    <td>Complete EPC Plant</td>
+                    <td>1</td>
+                    <td>{{ quotation.kw_total|floatformat:2 }}</td>
+                    <td>{{ quotation.complete_epc_rate }}</td>
+                    <td>12%</td>
                 </tr>
                 <tr>
-                    <td>2</td><td>Meter Charge</td><td>1</td><td>-</td><td>{{ quotation.meter_charge }}</td><td>0%</td><td>{{ quotation.meter_charge }}</td>
+                    <td>2</td>
+                    <td>Meter Charge</td>
+                    <td>1</td>
+                    <td>-</td>
+                    <td>{{ quotation.meter_charge }}</td>
+                    <td>0%</td>
                 </tr>
                 <tr>
-                    <td>3</td><td>Fabrication</td><td>1</td><td>-</td><td>{{ quotation.fabrication_rate }}</td><td>0%</td><td>{{ quotation.fabrication_total|floatformat:2 }}</td>
+                    <td>3</td>
+                    <td>Fabrication</td>
+                    <td>1</td>
+                    <td>-</td>
+                    <td>{{ quotation.fabrication_rate }}</td>
+                    <td>0%</td>
                 </tr>
                 <tr>
-                    <td>4</td><td>Module ({{ quotation.module_wp }} Wp x {{ quotation.module_quantity }})</td>
-                    <td>{{ quotation.module_quantity }}</td><td>-</td><td>{{ quotation.module_rate }}</td><td>0%</td><td>{{ quotation.module_total|floatformat:2 }}</td>
+                    <td>4</td>
+                    <td>Module ({{ quotation.module_wp }} Wp x {{ quotation.module_quantity }})</td>
+                    <td>{{ quotation.module_quantity }}</td>
+                    <td>-</td>
+                    <td>{{ quotation.module_rate }}</td>
+                    <td>0%</td>
                 </tr>
                 <tr>
-                    <td>5</td><td>Inverter ({{ quotation.inverter_size }} kW)</td><td>1</td><td>-</td><td>{{ quotation.inverter_rate }}</td><td>0%</td><td>{{ quotation.inverter_total|floatformat:2 }}</td>
+                    <td>5</td>
+                    <td>Inverter ({{ quotation.inverter_size }} kW)</td>
+                    <td>1</td>
+                    <td>-</td>
+                    <td>{{ quotation.inverter_rate }}</td>
+                    <td>0%</td>
                 </tr>
             </tbody>
         </table>
@@ -75,9 +102,6 @@
 
     <div class="section">
         <p><strong>GSTIN:</strong> 24AAHCI8590B1ZK</p>
-        <p><strong>Sub Total:</strong> ₹{{ quotation.subtotal|floatformat:2 }}</p>
-        <p><strong>Grand Total:</strong> ₹{{ quotation.grand_total|floatformat:2 }}</p>
-        <p><strong>Total Subsidy (not part of total):</strong> ₹{{ quotation.subsidy|floatformat:2 }}</p>
     </div>
 
     <div class="section">
@@ -93,7 +117,6 @@
         <h4>Note:</h4>
         <ul>
             <li>Final meter charge as per DISCOM quotation.</li>
-            <li>Subsidy will be credited after meter installation.</li>
             <li>Offer Validity: 10 days.</li>
         </ul>
         <h4>Payment Plan:</h4>

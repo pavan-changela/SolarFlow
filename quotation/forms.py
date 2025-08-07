@@ -6,7 +6,7 @@ class QuotationForm(forms.ModelForm):
     class Meta:
         model = Quotation
         fields = [
-            'customer', 'quotation_no', 'module_quantity', 'module_wp',
+            'customer' ,'module_quantity', 'module_wp',
             'inverter_size', 'complete_epc_rate', 'meter_charge',
             'fabrication_rate', 'module_rate', 'inverter_rate'
         ]

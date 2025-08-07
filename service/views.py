@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect  
 from .forms import ComplaintForm
 from .models import Complaint
 
@@ -15,4 +15,5 @@ def create_complaint(request):
     else:
         form = ComplaintForm()
     return render(request, 'service/create_complaint.html', {'form': form})
+
 

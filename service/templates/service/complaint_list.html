@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container mt-4">
-    <h2>All Complaints</h2>
-    <a href="{% url 'create_complaint' %}" class="btn btn-sm btn-outline-primary mb-3">New Complaint</a>
+    <h2>Complaints</h2>
+    <a href="{% url 'create_complaint' %}" class="btn btn-sm btn-outline-success mb-3">New Complaint</a>
+
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th><th>Customer</th><th>Type</th><th>Description</th><th>Resolved</th>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Resolved</th>
             </tr>
         </thead>
         <tbody>
             {% for complaint in complaints %}
             <tr>
                 <td>{{ complaint.complaint_id }}</td>
-                <td>{{ complaint.customer.name }}</td>
+                <td>{{ complaint.customer }}</td>
                 <td>{{ complaint.get_complaint_type_display }}</td>
                 <td>{{ complaint.description }}</td>
-                <td>
-                    {% if complaint.is_resolved %}
-                        ✅
-                    {% else %}
-                        ❌
-                    {% endif %}
-                </td>
+                <td>{% if complaint.is_resolved %}✅{% else %}❌{% endif %}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No complaints yet.</td>
             </tr>
             {% endfor %}
         </tbody>

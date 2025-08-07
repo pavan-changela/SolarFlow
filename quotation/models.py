@@ -3,9 +3,9 @@ from customers.models import Customer
 from django.utils import timezone
 
 class Quotation(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey('customers.Customer', on_delete=models.CASCADE)
     date = models.DateField(default=timezone.now)
-    quotation_no = models.PositiveIntegerField(unique=True)
+    quotation_no = models.CharField(max_length=20, unique=True, blank=True)
     module_quantity = models.PositiveIntegerField()
     module_wp = models.PositiveIntegerField()
     inverter_size = models.FloatField(help_text="in kW")
@@ -23,3 +23,12 @@ class Quotation(models.Model):
 
     def __str__(self):
         return f"Quotation #{self.quotation_no} for {self.customer.name}"
+    
+    def save(self, *args, **kwargs):
+        if not self.quotation_no:
+            # Auto-generate: e.g. QTN-20250807-001
+            today = timezone.now().strftime("%Y%m%d")
+            prefix = f"QTN-{today}-"
+            count_today = Quotation.objects.filter(quotation_no__startswith=prefix).count() + 1
+            self.quotation_no = f"{prefix}{count_today:03d}"
+        super().save(*args, **kwargs)

@@ -5,7 +5,7 @@ from .models import Complaint
 class ComplaintForm(forms.ModelForm):
     class Meta:
         model = Complaint
-        fields = ['customer', 'complaint_type', 'description', 'is_resolved']
+        fields = ['customer', 'complaint_type', 'description','is_resolved']
         widgets = {
             'customer': forms.Select(attrs={'class': 'form-select'}),
             'complaint_type': forms.Select(attrs={'class': 'form-select'}),
